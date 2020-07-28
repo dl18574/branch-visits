@@ -42,3 +42,32 @@ You should get the following response
 ]
 ```
 
+#Deploying to container registry
+
+```shell script
+$ docker build --tag branch-visits .
+$ docker tag branch-visits gcr.io/datanauts/branch-visits
+$ docker push gcr.io/datanauts/branch-visits
+```
+
+#Deploying to gcp
+
+```shell script
+$ gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project datanauts
+$ kubectl get services
+$ kubectl apply -f ./branch-visits.yaml
+$ kubectl get services
+```
+
+#Debug deployment
+```shell script
+$  kubectl get pods
+# /bin/ash as using alpine linux otherwise use /bin/bash
+$  kubectl exec --stdin --tty branch-visits-deployment-bb7c5565-k4tcj -- /bin/ash
+```
+
+#Other cmds
+```shell script
+$ kubectl get deployment  branch-visits-deployment
+$ kubectl rollout restart branch-visits-deployment
+```

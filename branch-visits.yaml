@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: branch-visits-deployment
+  labels:
+    app: branch-visits
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: branch-visits
+  template:
+    metadata:
+      labels:
+        app: branch-visits
+    spec:
+      containers:
+        - name: branch-visits
+          image: gcr.io/datanauts/branch-visits:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+              name: branch-visits
+          env:
+            - name: USER_ENDPOINT
+              value: userservice-service
+            - name: USER_ENDPOINT2
+              value: balhhh
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: branch-visits
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: branch-visits
+  selector:
+    app: branch-visits
