@@ -24,7 +24,7 @@ spec:
           env:
             - name: USER_ENDPOINT
               value: userservice-service
-            - name: USER_ENDPOINT2
+            - name: ANOTHER_VALUE
               value: balhhh
 ---
 apiVersion: v1
