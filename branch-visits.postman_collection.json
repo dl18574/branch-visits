@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "bdaa8af4-f40d-49b9-8833-d09c78b0ce7a",
+		"name": "branch-visits",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "branch-visits list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/visits?date=2020-07-28",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"visits"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2020-07-28"
+						}
+					]
+				},
+				"description": "asdf"
+			},
+			"response": []
+		},
+		{
+			"name": "branch-visits create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 11,\n    \"branchId\": 1,\n    \"date\": \"2020-06-28T0\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/visits",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"visits"
+					]
+				},
+				"description": "asdf"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
