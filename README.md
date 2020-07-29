@@ -20,8 +20,12 @@ $ docker run -p 3000:3000  branch-visits
 Testing the service
 
 ```shell script
-curl --location --request GET 'localhost:3000/visits?date=2020-07-28'
+curl  'http://localhost:3000/visits?date=2020-07-28'
 ```
+
+OR there is a postman collection
+
+* branch-visits.postman_collection.json
 
 You should get the following response
 
