@@ -4,7 +4,13 @@ class VisitRepository {
     }
 
     add(visit) {
+        if (this.visits.length > 0) {
+            visit.visitId = (this.visits.slice(-1)[0]).visitId + 1;
+        } else {
+            visit.visitId = 1;
+        }
         this.visits.push(visit)
+        return visit;
     }
 
     findByDate(date) {

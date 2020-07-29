@@ -9,4 +9,11 @@ router.get('/', function(req, res, next) {
   res.json(visitsByDate);
 });
 
+router.post('/', function(req, res, next) {
+  const visit = req.body
+  visit.date = new Date(visit.date)
+  const result = visitRepository.add(visit)
+  res.json(result);
+});
+
 module.exports = router;
